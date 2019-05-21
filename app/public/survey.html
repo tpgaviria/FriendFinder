@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome Glyphicons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h1>Survey</h1>
+        </div>
+        <div class="row">
+            <h4>About You</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Name</h5>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <h5>Add Photo</h5>
+                <input type="file" class="form-control" onchange="previewFile()"><br>
+                <img src="" height="200" alt="Image preview...">
+            </div>
+        </div>
+
+        <div class="row instructions">
+            <p>Answer the following questions
+            </p>
+        </div>
+
+        <div class="container text-center">
+            <div id="quiz">
+
+                <div class="prompt" id="q1">
+                    <p>I find it difficult to introduce myself to people</p>
+                    <div class="row choices">
+                        <button class="btn btn-light btn-strongly-agree">Strongly Agree</button>
+                        <button class="btn btn-light btn-agree">Agree</button>
+                        <button class="btn btn-light">Neutral</button>
+                        <button class="btn btn-light btn-disagree">Disagree</button>
+                        <button class="btn btn-light btn-strongly-disagree">Strongly
+                            Disagree</button>
+                    </div>
+                </div>
+
+                <li class="list-group-item prompt">
+                    <p>I get so lost in my thoughts I ignore or forget my surroundings</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group1 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group1 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group1 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group1 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group1 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I do not usually initiate conversations</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group2 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group2 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group2 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group2 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group2 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I prefer not to engage with people who seem angry or upset</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group3 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group3 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group3 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group3 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group3 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I choose my friends carefully</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group4 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group4 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group4 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group4 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group4 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I find it difficult to tell stories about myself</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group5 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group5 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group5 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group5 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group5 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I am usually highly motivated and energetic</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group6 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group6 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group6 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group6 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group6 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I find it easy to walk up to a group of people and join in conversation</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group7 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group7 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group7 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group7 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group7 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>Being adaptable is more important than being organized</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group8 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group8 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group8 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group8 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group8 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I care more about making sure no one gets upset than winning a debate</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group9 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button class="group9 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group9 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group9 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group9 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I often do not feel I have to justify myself to people</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group10 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button
+                                class="group10 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group10 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group10 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group10 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item prompt">
+                    <p>I would rather improvise than spend time coming up with a detailed plan</p>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group"><button
+                                class="group11 value-btn btn btn-default btn-strongly-agree">Strongly
+                                Agree</button></div>
+                        <div class="btn-group"><button
+                                class="group11 value-btn btn btn-default btn-agree">Agree</button>
+                        </div>
+                        <div class="btn-group"><button class="group11 value-btn btn btn-default">Neutral</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group11 value-btn btn btn-default btn-disagree">Disagree</button>
+                        </div>
+                        <div class="btn-group"><button
+                                class="group11 value-btn btn btn-default btn-strongly-disagree">Strongly
+                                Disagree</button>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+                        aria-hidden="true"></i>
+                    Submit</button>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <script src="/survey.js"></script>
+</body>
+
+</html>
