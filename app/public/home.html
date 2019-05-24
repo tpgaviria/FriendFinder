@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Friend Finder</title>
+    <title>Friend Finder - Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -28,67 +28,64 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <h1>Survey</h1>
-        </div>
-        <div class="row">
-            <h4>About You</h4>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Name</h5>
-                <input type="text" id="name" class="form-control" required>
+
+        <div class="jumbotron">
+            <h1 class="display-4">Friend Finder</h1>
+            <p class="lead">Fill out our survey and be matched with a compatible friend!</p>
+            <hr class="my-4">
+            <p id="homeinstructions">To begin, please enter your name and upload a photo of yourself.</p>
+            <div class="justify-content-center">
+            <div class="row justify-content-center info">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6">
+
+
+                    <h5>Name</h5>
+                    <form id="addname" class="form-group">
+                        <input type="text" class="form-control" id="name" required></textarea>
+                    </form>
+
+                    <h5>Age</h5>
+                    <form id="addage" class="form-group">
+                        <input type="number" class="form-control" id="age" required></textarea>
+                    </form>
+
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+
+                    <h5>Photo</h5>
+                    <div class="preview">
+
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <label for="image_uploads" id="uploadbutton">Upload photo</label>
+                            <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png"
+                                multiple>
+                        </div>
+                    </form>
+
+                </div>
+                <button type="submit" class="btn btn-light btn-lg" id="submit"><i class="fa fa-check-circle"
+                        aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Submit</button>
             </div>
-            <div class="col-md-6">
-                <h5>Add Photo</h5>
-                <input type="file" class="form-control" onchange="previewFile()" required><br>
-                <img src="" height="200" alt="Image preview...">
+            <div id="updatedInfo" class="justify-content-center col">
+                <div class="card" id="infoCard" style="width: 18rem;">
+                    <img id="photo" src="" class="card-img-top" alt="...">
+                    <div class="card-body" id="stats">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg" id="submit" onClick="editInfo()">Edit Info</button>
+                <button type="submit" class="btn btn-info btn-lg" id="submit" onClick="start">Start Survey</button>
             </div>
+
         </div>
+
+        </div>
+
     </div>
-    <script>
-        function previewFile() {
-            var preview = document.querySelector('img'); //selects the query named img
-            var file = document.querySelector('input[type=file]').files[0]; //sames as here
-            var reader = new FileReader();
-
-            reader.onloadend = function () {
-                preview.src = reader.result;
-            }
-
-            if (file) {
-                reader.readAsDataURL(file); //reads the data as a URL
-
-            } else {
-                preview.src = "";
-            }
-        }
-
-        previewFile();
-
-        $("#submit").on("click", function (event) {
-            event.preventDefault();
-
-            function validateForm() {
-                var isValid = true;
-                $(".form-control").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                $(".chosen-select").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
-            // If all required fields are filled
-            if (validateForm()) {
-                console.log('hi');
-            }
-        });
-    </script>
+    <script src="/app/scripts/home.js"></script>
 </body>
 
 </html>

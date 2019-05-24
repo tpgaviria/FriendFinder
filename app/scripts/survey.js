@@ -1,3 +1,5 @@
+console.log('survey.js loaded');
+
 $("#submit").on("click", function(event) {
     event.preventDefault();
     // Form validation
