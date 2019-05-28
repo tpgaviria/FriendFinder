@@ -40,22 +40,23 @@ $('#submit').on('click', function () {
     $('#photo').attr('src', window.URL.createObjectURL(uploadedPhoto[0]));
     $('#stats').html(`<p>Name: ${name}<br>Age: ${age}`);
 
-    $('#updatedInfo').css('display', 'block');    
+    $('#updatedInfo').css('display', 'block');
 
 });
 
-function editInfo(){
+function editInfo() {
     $('.info').show();
     $('#updatedInfo').hide();
 }
 
-function start(){
+function start() {
     userStats = {
         name: document.querySelector('input#name').value,
         age: document.querySelector('input#age').value,
         image: window.URL.createObjectURL(uploadedPhoto[0])
     }
 
-    $.post("/api/friends", userStats, function(data) {
-
+    $.post("/api/friends", userStats, function (data) {
+        res.redirect('/survey');
+    })
 }
